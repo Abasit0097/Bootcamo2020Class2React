@@ -1,0 +1,31 @@
+name: Deploying Basic React App
+
+on: [push]
+
+jobs:
+  
+  build:
+    
+    runs-on: ubuntu-latest
+
+    
+    steps:
+    - uses: actions/checkout@v2
+    - name: installing node js
+      uses: actions/setup-node@v2-beta
+      with:
+        node-version: 12
+      
+    - name: installing yarn 
+    - uses: borales/actions-yarn@v2.0.0
+      with:
+          cmd: install
+      
+    - name: build react app
+      run: yarn build
+    
+    - name: installing surge
+      run: npm install -g surge
+      
+    - name: running surge
+      run: surge .buil/ abdulbasit-bootcamp2020-react.surge.sh --token ${{ secrets.SURGE_TOKEN}}
