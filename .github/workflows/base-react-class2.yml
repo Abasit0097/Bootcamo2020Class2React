@@ -23,4 +23,4 @@ jobs:
     - name: installing surge
       run: npm install --g surge      
     - name: running surge
-      run: surge .build/ abdulbasit-bootcamp2020-react.surge.sh --token ${{ secrets.SURGE_TOKEN}}
+      run: surge ./build abdulbasit-bootcamp2020-react.surge.sh --token ${{ secrets.SURGE_TOKEN}}
